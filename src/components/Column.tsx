@@ -1,4 +1,6 @@
 import React from 'react'
+import Task from './Task'
+
 import '../styles/Column.css'
 
 // Define the interface for column props
@@ -16,17 +18,11 @@ const Column: React.FC<ColumnProps> = ({ title, tasks, onTaskMove }) => {
     return (
         <div className="column">
             <h2 className='column__title'>{title}</h2>
-            <ul>
+            <div>
                 {tasks.map((task, index) => (
-                    <li key={index}>
-                        {task}
-                        <div>
-                            <button onClick={() => handleTaskMove(task, 'left')}>Move Left</button>
-                            <button onClick={() => handleTaskMove(task, 'right')}>Move Right</button>
-                        </div>
-                    </li>
+                    <Task task={task} index={index} handleTaskMove={handleTaskMove} />
                 ))}
-            </ul>
+            </div>
         </div>
     );
 }

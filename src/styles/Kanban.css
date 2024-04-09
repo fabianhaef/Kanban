@@ -1,8 +1,12 @@
 .kanban__title {
     color: #100F0E;
     font-weight: bold; 
+    text-align: center;
+    margin-bottom: 24px;
 }
+
 
 .kanban__wrapper {
     display: flex;
+    gap: 20px;
 }

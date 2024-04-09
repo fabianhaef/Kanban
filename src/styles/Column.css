@@ -1,8 +1,12 @@
 .column {
     display: flex;
     flex-direction: column;
+    background-color: #F6EFE2;
+    border: 1px solid #100F0E;
+    padding: 20px;
 }
 
-.column__wrapper {
-    display: flex;
+
+.column__title {
+    color: #100F0E;
 }

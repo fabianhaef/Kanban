@@ -32,7 +32,7 @@ const Kanban: React.FC<ParentProps> = ({ initialColumns }) => {
     return (
         <div className="kanban">
             <h1 className='kanban__title'>Kanban</h1>
-            <div className="column__wrapper">
+            <div className="kanban__wrapper">
                 {columns.map((column, index) => (
                     <Column
                         key={index}
