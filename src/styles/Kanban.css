@@ -1,0 +1,8 @@
+.kanban__title {
+    color: #100F0E;
+    font-weight: bold; 
+}
+
+.kanban__wrapper {
+    display: flex;
+}
