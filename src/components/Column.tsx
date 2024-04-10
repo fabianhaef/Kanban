@@ -3,24 +3,31 @@ import Task from './Task'
 
 import '../styles/Column.css'
 
-// Define the interface for column props
 interface ColumnProps {
     title: string;
-    tasks: string[]; // Assuming tasks are represented by their titles as strings
-    onTaskMove: (taskTitle: string, direction: 'left' | 'right') => void;
+    tasks: string[];
 }
 
-const Column: React.FC<ColumnProps> = ({ title, tasks, onTaskMove }) => {
-    const handleTaskMove = (taskTitle: string, direction: 'left' | 'right') => {
-        onTaskMove(taskTitle, direction);
+const Column: React.FC<ColumnProps> = ({ title, tasks }) => {
+    const handleDragOver = (e: any) => {
+        e.preventDefault();
+    };
+
+    const handleDrop = (e: any) => {
+        e.preventDefault();
+        const draggableId = e.dataTransfer.getData('text/plain');
+        const draggableElement = document.getElementById(draggableId);
+        e.target.appendChild(draggableElement);
     };
 
     return (
-        <div className="column">
+        <div className="column"
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}>
             <h2 className='column__title'>{title}</h2>
             <div>
                 {tasks.map((task, index) => (
-                    <Task task={task} index={index} handleTaskMove={handleTaskMove} />
+                    <Task task={task} id={`draggable-${title}-${index}`} key={index} />
                 ))}
             </div>
         </div>

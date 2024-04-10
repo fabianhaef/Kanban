@@ -1,20 +1,20 @@
 import React from 'react';
+import '../styles/Task.css';
 
 interface TaskProps {
     task: string;
-    index: number;
-    handleTaskMove: (task: string, direction: 'left' | 'right') => void;
+    id: string;
 }
 
-const Task: React.FC<TaskProps> = ({ task, index, handleTaskMove }) => {
+const Task: React.FC<TaskProps> = ({ task, id }) => {
+    const handleDragStart = (e) => {
+        e.dataTransfer.setData('text/plain', id);
+    };
+
     return (
-        <div key={index}>
+        <div id={id} key={id} draggable onDragStart={handleDragStart} >
             <div className="task__title">
                 {task}
-            </div>
-            <div>
-                <button onClick={() => handleTaskMove(task, 'left')}>Move Left</button>
-                <button onClick={() => handleTaskMove(task, 'right')}>Move Right</button>
             </div>
         </div>
     )
