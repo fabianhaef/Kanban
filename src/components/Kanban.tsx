@@ -4,7 +4,11 @@ import '../styles/Kanban.css'
 
 // Define the interface for parent component props
 interface ParentProps {
-    initialColumns: { title: string; tasks: string[] }[];
+    initialColumns: {
+        title: string;
+        tasks: string[],
+        maxTasks?: number
+    }[];
 }
 
 const Kanban: React.FC<ParentProps> = ({ initialColumns }) => {
@@ -19,6 +23,7 @@ const Kanban: React.FC<ParentProps> = ({ initialColumns }) => {
                         key={index}
                         title={column.title}
                         tasks={column.tasks}
+                        maxTasks={column.maxTasks}
                     />
                 ))}
             </div>

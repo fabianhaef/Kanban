@@ -4,15 +4,18 @@ import Kanban from "./components/Kanban";
 const initialColumns = [
   {
     title: 'To Do',
-    tasks: ['Task 1', 'Task 2', 'Task 3']
+    tasks: ['Task 1', 'Task 2', 'Task 3'],
+    maxTasks: 1000,
   },
   {
     title: 'In Progress',
-    tasks: ['Task 4', 'Task 5']
+    tasks: ['Task 4', 'Task 5'],
+    maxTasks: 2
   },
   {
     title: 'Done',
-    tasks: ['Task 6']
+    tasks: ['Task 6'],
+    maxTasks: 1000,
   }
 ];
 
